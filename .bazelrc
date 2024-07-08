@@ -1,0 +1,4 @@
+build --noincompatible_sandbox_hermetic_tmp
+# build --sandbox_debug
+build --disk_cache=~/.cache/shared_bazel_action_cache/
+test --test_verbose_timeout_warnings

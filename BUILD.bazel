@@ -1,0 +1,21 @@
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+bzl_library(
+    name = "version",
+    srcs = ["version.bzl"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "sources",
+    srcs = glob(["**"]),
+)
+
+cmake(
+    name = "SFML",
+    lib_source = "sources",
+    # This demonstrates the usage of the working directory:
+    # the directory where the "main" CMakeLists.txt file resides.
+    working_directory = ".",
+)
